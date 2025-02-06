@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Logging;
+using GameNetcodeStuff;
 using HarmonyLib;
+using OpidsFirstLethalCompanyMod.Patches;
 
 namespace OpidsFirstLethalCompanyMod
 {
@@ -31,7 +28,8 @@ namespace OpidsFirstLethalCompanyMod
             mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
             mls.LogInfo("Hello world");
             //harmony.PatchAll(typeof(Base);
-            harmony.PatchAll();
+            harmony.PatchAll(typeof(Base));
+            harmony.PatchAll(typeof(PlayerControllerBPatch));
         }
     }
 }
